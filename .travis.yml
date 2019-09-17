@@ -1,0 +1,7 @@
+sudo: required
+services:
+  - docker
+
+script:
+  - docker build -t davidhughes3/node .
+  - docker images davidhughes3/node
