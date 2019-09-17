@@ -5,3 +5,12 @@ services:
 script:
   - docker build -t davidhughes3/node .
   - docker images davidhughes3/node
+
+before_deploy:
+  - docker login -u davidhughes3 -p DOCKER_PASSWORD
+
+deploy:
+  provider: script
+  script: docker push davidhughes3/node
+  on:
+    branch: master
